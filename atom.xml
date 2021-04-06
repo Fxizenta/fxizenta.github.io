@@ -6,7 +6,7 @@
   <link href="http://fxizenta.github.io/atom.xml" rel="self"/>
   
   <link href="http://fxizenta.github.io/"/>
-  <updated>2021-03-07T04:55:56.417Z</updated>
+  <updated>2021-04-06T12:00:24.607Z</updated>
   <id>http://fxizenta.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2021hfctf_wp</title>
+    <link href="http://fxizenta.github.io/2021/04/06/2021hfctf-wp/"/>
+    <id>http://fxizenta.github.io/2021/04/06/2021hfctf-wp/</id>
+    <published>2021-04-06T11:52:50.000Z</published>
+    <updated>2021-04-06T12:00:24.607Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="2021hfctf-wp"><a href="#2021hfctf-wp" class="headerlink" title="2021hfctf wp"></a>2021hfctf wp</h1><h1 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h1><h2 id="签到"><a href="#签到" class="headerlink" title="签到"></a>签到</h2><p>前段时间php git仓库被上传的恶意代码的利用RCE</p><p>去github上看看恶意代码段</p><p>有点小坑的是后面还有一个t</p><p>User-Agentt:zerodiumsystem(“cat /flag”);</p><p><img src="https://myimage-1303975616.cos.ap-guangzhou.myqcloud.com/img/2021Untitled%201.png"></p><h2 id="unsetme"><a href="#unsetme" class="headerlink" title="unsetme"></a>unsetme</h2><p>代码百度一下发现是fatfree框架</p><p>下源码下来看一下</p><p>发现代码利用段如下</p><p><img src="https://i.loli.net/2021/04/06/UbaAjcunLsKoQyX.png" alt="unsetme"></p><p>构造payload?a=b&amp;a=b%0a,$abc);system(“cat /flag”</p><h2 id="慢慢来数据库"><a href="#慢慢来数据库" class="headerlink" title="慢慢来数据库"></a>慢慢来数据库</h2><p>这题是真的有毒。。</p><p>根据提示</p><p>index.php的md5注入绕过，password填129581926211651571912466741651878684928即可<br>ssrf访问127.0.0.1/admin.php<br>然后堆叠注入，这里应该是强网杯随便注的魔改</p><p>发现2个库，找到库 ctf2 里2个表</p><p>看一下2个表的字段<br>real_admin_here_do_you_find里是id,username,password<br>fake_admin是id,username,fake_password<br>页面默认select的是fake_admin，用改名的方法来查真的密码</p><p>这里用的是RENAME</p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27; or 1=1;use ctf2;RENAME TABLE `fake_admin` TO `fake_admin1`;RENAME TABLE</span></span><br><span class="line"><span class="string">`real_admin_here_do_you_find` TO `fake_admin`; --</span></span><br></pre></td></tr></table></figure><p>然后用 ‘or 1=1 注入查密码</p><p>最后ssrf看admin.php出flag</p><p>查的用户名是admin_inner最后用的是admin也是没谁了</p><h1 id="MISC"><a href="#MISC" class="headerlink" title="MISC"></a>MISC</h1><h2 id="你会日志吗？"><a href="#你会日志吗？" class="headerlink" title="你会日志吗？"></a>你会日志吗？</h2><p>时间盲注的日志，找377然后ASSIC转，发现是base64 ZmxhZ3tZb3VfYXJlX3NvX2dyZWF0fQ==</p><p>解码出flag</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;2021hfctf-wp&quot;&gt;&lt;a href=&quot;#2021hfctf-wp&quot; class=&quot;headerlink&quot; title=&quot;2021hfctf wp&quot;&gt;&lt;/a&gt;2021hfctf wp&lt;/h1&gt;&lt;h1 id=&quot;Web&quot;&gt;&lt;a href=&quot;#Web&quot; class</summary>
+      
+    
+    
+    
+    <category term="web" scheme="http://fxizenta.github.io/categories/web/"/>
+    
+    
+    <category term="wp" scheme="http://fxizenta.github.io/tags/wp/"/>
+    
+  </entry>
   
   <entry>
     <title>正则表达式学习总结</title>
@@ -71,14 +95,14 @@
     <link href="http://fxizenta.github.io/2021/01/24/hello-world/"/>
     <id>http://fxizenta.github.io/2021/01/24/hello-world/</id>
     <published>2021-01-23T16:00:00.000Z</published>
-    <updated>2021-03-03T04:11:30.208Z</updated>
+    <updated>2021-03-15T10:58:21.520Z</updated>
     
-    <content type="html"><![CDATA[<p>本博客创建于2021年1月24日，用于分享以及记录学习笔记。</p>]]></content>
+    <content type="html"><![CDATA[<p>本博客创建于2021年1月24日，因在竞赛学习中感觉到学到的知识遗忘的过快，于是决定建立此博客，用于分享以及记录学习笔记。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;p&gt;本博客创建于2021年1月24日，用于分享以及记录学习笔记。&lt;/p&gt;
+    <summary type="html">&lt;p&gt;本博客创建于2021年1月24日，因在竞赛学习中感觉到学到的知识遗忘的过快，于是决定建立此博客，用于分享以及记录学习笔记。&lt;/p&gt;
 </summary>
       
     
