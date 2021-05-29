@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fxizenta.github.io/2021/05/29/fastjson/</loc>
+    <loc>http://fxizenta.github.io/2021/05/06/same_source_and_cors/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
@@ -16,14 +16,14 @@
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/05/18/ciscn2021/</loc>
+    <loc>http://fxizenta.github.io/2021/05/29/fastjson/</loc>
     
-    <lastmod>2021-05-18</lastmod>
+    <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/05/06/same_source_and_cors/</loc>
+    <loc>http://fxizenta.github.io/2021/05/18/ciscn2021/</loc>
     
     <lastmod>2021-05-18</lastmod>
     
@@ -88,7 +88,7 @@
 
   
   <url>
-    <loc>http://fxizenta.github.io/tags/flask/</loc>
+    <loc>http://fxizenta.github.io/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
     <lastmod>2021-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -102,21 +102,7 @@
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
-    <lastmod>2021-05-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://fxizenta.github.io/tags/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-05-29</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>http://fxizenta.github.io/tags/sql/</loc>
+    <loc>http://fxizenta.github.io/tags/flask/</loc>
     <lastmod>2021-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -124,6 +110,27 @@
   
   <url>
     <loc>http://fxizenta.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fxizenta.github.io/tags/sqli/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fxizenta.github.io/tags/web%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fxizenta.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -140,6 +147,13 @@
   
   <url>
     <loc>http://fxizenta.github.io/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-05-29</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://fxizenta.github.io/categories/ctf-web/</loc>
     <lastmod>2021-05-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
