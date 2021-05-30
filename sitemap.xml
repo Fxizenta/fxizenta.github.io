@@ -2,77 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://fxizenta.github.io/2021/04/06/2021hfctf-wp/</loc>
+    <loc>http://fxizenta.design/2021/04/06/2021hfctf-wp/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/03/01/awp_for_falsk/</loc>
+    <loc>http://fxizenta.design/2021/03/01/awp_for_falsk/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/05/18/ciscn2021/</loc>
+    <loc>http://fxizenta.design/2021/05/18/ciscn2021/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/05/29/fastjson/</loc>
+    <loc>http://fxizenta.design/2021/05/29/fastjson/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/05/06/same_source_and_cors/</loc>
+    <loc>http://fxizenta.design/2021/05/06/same_source_and_cors/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/04/17/sqli/</loc>
+    <loc>http://fxizenta.design/2021/04/17/sqli/</loc>
     
     <lastmod>2021-05-29</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/01/24/hello-world/</loc>
+    <loc>http://fxizenta.design/2021/01/24/hello-world/</loc>
     
     <lastmod>2021-03-15</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/2021/03/06/regular_expression/</loc>
+    <loc>http://fxizenta.design/2021/03/06/regular_expression/</loc>
     
     <lastmod>2021-03-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/categories/index.html</loc>
+    <loc>http://fxizenta.design/categories/index.html</loc>
     
     <lastmod>2021-03-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/link/index.html</loc>
+    <loc>http://fxizenta.design/link/index.html</loc>
     
     <lastmod>2021-03-03</lastmod>
     
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/index.html</loc>
+    <loc>http://fxizenta.design/tags/index.html</loc>
     
     <lastmod>2021-03-03</lastmod>
     
@@ -80,72 +80,72 @@
   
 
   <url>
-    <loc>http://fxizenta.github.io/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://fxizenta.github.io/tags/wp/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/wp/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/flask/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/flask/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/RCE/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/RCE/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/JNDI%E6%B3%A8%E5%85%A5/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/JNDI%E6%B3%A8%E5%85%A5/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/web%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/web%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/sqli/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/tags/sqli/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -153,22 +153,22 @@
 
   
   <url>
-    <loc>http://fxizenta.github.io/categories/ctf-web/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/categories/ctf-web/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/categories/web/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/categories/web/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.github.io/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2021-05-29</lastmod>
+    <loc>http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2021-05-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
