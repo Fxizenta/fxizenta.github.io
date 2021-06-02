@@ -341,21 +341,24 @@ if (asideStatus !== undefined) {
       emojiMaps: "",
       enableQQ: false,
       path: window.location.pathname,
+      master: 'a8c3fe8846bf58225de5def64ef46ab4,d395d3bd52d869755bb4e170a1ebafbb'.split(','),
+      friends: 'fb6caebdb214a4d600ed1bc1aa46d4c3,cc558dd40bb81f311ab6fc77df5f4ba3'.split(','),
+      tagMeta: '博主,小伙伴,访客'.split(',')
     }
 
-    if (true) { 
+    if (true) {
       initData.requiredFields= ('mail'.split(','))
     }
-    
+
     if (false) {
       const otherData = false
       initData = Object.assign(initData, otherData)
     }
-    
+
     const valine = new Valine(initData)
   }
 
-  if (typeof Valine === 'function') initValine() 
+  if (typeof Valine === 'function') initValine()
   else getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js').then(initValine)
 }
 
