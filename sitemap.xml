@@ -130,14 +130,14 @@
   </url>
   
   <url>
-    <loc>http://fxizenta.design/tags/%E5%89%8D%E7%AB%AF/</loc>
+    <loc>http://fxizenta.design/tags/sqli/</loc>
     <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.design/tags/sqli/</loc>
+    <loc>http://fxizenta.design/tags/%E5%89%8D%E7%AB%AF/</loc>
     <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -195,14 +195,14 @@
   </url>
   
   <url>
-    <loc>http://fxizenta.design/categories/web/</loc>
+    <loc>http://fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/</loc>
     <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/</loc>
+    <loc>http://fxizenta.design/categories/web/</loc>
     <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -216,14 +216,14 @@
   </url>
   
   <url>
-    <loc>http://fxizenta.design/categories/web/%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
+    <loc>http://fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/sql%E6%B3%A8%E5%85%A5/</loc>
     <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/sql%E6%B3%A8%E5%85%A5/</loc>
+    <loc>http://fxizenta.design/categories/web/%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2021-07-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
