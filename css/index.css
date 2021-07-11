@@ -3183,9 +3183,12 @@ li.categoryBar-list-item:nth-child(1)>span::after {
   content: 'ctf中的web题相关' !important;
 }
 li.categoryBar-list-item:nth-child(2)>span::after {
-  content: 'web开发相关' !important;
+  content: 'linux是cser的基本素养' !important;
 }
 li.categoryBar-list-item:nth-child(3)>span::after {
+  content: 'web开发相关' !important;
+}
+li.categoryBar-list-item:nth-child(4)>span::after {
   content: '也不要忘了基础学习哦' !important;
 }
 li.categoryBar-list-item {
