@@ -3167,12 +3167,15 @@ li.categoryBar-list-item:nth-child(4) {
   background: url('https://myimage-1303975616.cos.ap-guangzhou.myqcloud.com/img/2021%E4%B9%83%E7%90%B3.jpg');
 }
 li.categoryBar-list-item:nth-child(5) {
-  background: #abcdef;
+  background: url('https://myimage-1303975616.cos.ap-guangzhou.myqcloud.com/img/202120210711223901.png');
 }
 li.categoryBar-list-item:nth-child(6) {
-  background: rgba(45,67,89,0.7);
+  background: #abcdef;
 }
 li.categoryBar-list-item:nth-child(7) {
+  background: rgba(45,67,89,0.7);
+}
+li.categoryBar-list-item:nth-child(8) {
   background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
   background: -moz-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
   background: -o-linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
@@ -3180,16 +3183,19 @@ li.categoryBar-list-item:nth-child(7) {
   background: linear-gradient(rgba(0, 0, 0, 0.4) 25%, rgba(200,16 , 16, 0) 100%);
 }
 li.categoryBar-list-item:nth-child(1)>span::after {
-  content: 'ctf中的web题相关' !important;
+  content: 'ctf中遇到的题目' !important;
 }
 li.categoryBar-list-item:nth-child(2)>span::after {
-  content: 'linux是cser的基本素养' !important;
-}
-li.categoryBar-list-item:nth-child(3)>span::after {
   content: 'web开发相关' !important;
 }
-li.categoryBar-list-item:nth-child(4)>span::after {
+li.categoryBar-list-item:nth-child(3)>span::after {
   content: '也不要忘了基础学习哦' !important;
+}
+li.categoryBar-list-item:nth-child(4)>span::after {
+  content: '渗透知识可是很重要的' !important;
+}
+li.categoryBar-list-item:nth-child(5)>span::after {
+  content: '复习漏洞才能快速进步' !important;
 }
 li.categoryBar-list-item {
   width: 32.3% !important;
