@@ -6,7 +6,7 @@
   <link href="http://fxizenta.design/atom.xml" rel="self"/>
   
   <link href="http://fxizenta.design/"/>
-  <updated>2021-08-03T16:49:58.195Z</updated>
+  <updated>2021-08-03T16:51:12.902Z</updated>
   <id>http://fxizenta.design/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://fxizenta.design/2021/08/04/Matrix-inverse/"/>
     <id>http://fxizenta.design/2021/08/04/Matrix-inverse/</id>
     <published>2021-08-03T16:41:16.000Z</published>
-    <updated>2021-08-03T16:49:58.195Z</updated>
+    <updated>2021-08-03T16:51:12.902Z</updated>
     
     <content type="html"><![CDATA[<p>$\left[ \begin{matrix} 1 &amp; 2 \ -1 &amp;-3  \end{matrix} \right]$</p>]]></content>
     
