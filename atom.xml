@@ -3,11 +3,11 @@
   <title>Fxizenta</title>
   <icon>https://www.gravatar.com/avatar/4228837cba43fcbe7a475443e3f4ec19</icon>
   <subtitle>太阳尚远，但必有太阳</subtitle>
-  <link href="http://fxizenta.design/atom.xml" rel="self"/>
+  <link href="http://www.fxizenta.design/atom.xml" rel="self"/>
   
-  <link href="http://fxizenta.design/"/>
+  <link href="http://www.fxizenta.design/"/>
   <updated>2021-08-13T15:50:23.926Z</updated>
-  <id>http://fxizenta.design/</id>
+  <id>http://www.fxizenta.design/</id>
   
   <author>
     <name>Fxizenta</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>phpmyadmin的几个漏洞复现</title>
-    <link href="http://fxizenta.design/2021/08/13/phpmyadmin/"/>
-    <id>http://fxizenta.design/2021/08/13/phpmyadmin/</id>
+    <link href="http://www.fxizenta.design/2021/08/13/phpmyadmin/"/>
+    <id>http://www.fxizenta.design/2021/08/13/phpmyadmin/</id>
     <published>2021-08-13T15:26:54.000Z</published>
     <updated>2021-08-13T15:50:23.926Z</updated>
     
@@ -30,21 +30,21 @@
     
     
     
-    <category term="漏洞复现" scheme="http://fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    <category term="漏洞复现" scheme="http://www.fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
-    <category term="phpmyadmin" scheme="http://fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/phpmyadmin/"/>
+    <category term="phpmyadmin" scheme="http://www.fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/phpmyadmin/"/>
     
     
-    <category term="RCE" scheme="http://fxizenta.design/tags/RCE/"/>
+    <category term="RCE" scheme="http://www.fxizenta.design/tags/RCE/"/>
     
-    <category term="文件包含" scheme="http://fxizenta.design/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
+    <category term="文件包含" scheme="http://www.fxizenta.design/tags/%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB/"/>
     
   </entry>
   
   <entry>
     <title>矩阵求逆的几种方法</title>
-    <link href="http://fxizenta.design/2021/08/04/Matrix-inverse/"/>
-    <id>http://fxizenta.design/2021/08/04/Matrix-inverse/</id>
+    <link href="http://www.fxizenta.design/2021/08/04/Matrix-inverse/"/>
+    <id>http://www.fxizenta.design/2021/08/04/Matrix-inverse/</id>
     <published>2021-08-03T16:41:16.000Z</published>
     <updated>2021-08-03T17:18:05.035Z</updated>
     
@@ -58,19 +58,19 @@
     
     
     
-    <category term="基础学习" scheme="http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="基础学习" scheme="http://www.fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="线性代数" scheme="http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
+    <category term="线性代数" scheme="http://www.fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0/"/>
     
     
-    <category term="矩阵" scheme="http://fxizenta.design/tags/%E7%9F%A9%E9%98%B5/"/>
+    <category term="矩阵" scheme="http://www.fxizenta.design/tags/%E7%9F%A9%E9%98%B5/"/>
     
   </entry>
   
   <entry>
     <title>2021ciscn决赛总结</title>
-    <link href="http://fxizenta.design/2021/07/19/ciscn2021final/"/>
-    <id>http://fxizenta.design/2021/07/19/ciscn2021final/</id>
+    <link href="http://www.fxizenta.design/2021/07/19/ciscn2021final/"/>
+    <id>http://www.fxizenta.design/2021/07/19/ciscn2021final/</id>
     <published>2021-07-18T23:14:21.000Z</published>
     <updated>2021-07-23T09:06:06.369Z</updated>
     
@@ -84,19 +84,19 @@
     
     
     
-    <category term="ctf" scheme="http://fxizenta.design/categories/ctf/"/>
+    <category term="ctf" scheme="http://www.fxizenta.design/categories/ctf/"/>
     
-    <category term="总结" scheme="http://fxizenta.design/categories/ctf/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="http://www.fxizenta.design/categories/ctf/%E6%80%BB%E7%BB%93/"/>
     
     
-    <category term="总结" scheme="http://fxizenta.design/tags/%E6%80%BB%E7%BB%93/"/>
+    <category term="总结" scheme="http://www.fxizenta.design/tags/%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
   <entry>
     <title>nc的简介以及常见使用方法</title>
-    <link href="http://fxizenta.design/2021/07/11/nc-introudion/"/>
-    <id>http://fxizenta.design/2021/07/11/nc-introudion/</id>
+    <link href="http://www.fxizenta.design/2021/07/11/nc-introudion/"/>
+    <id>http://www.fxizenta.design/2021/07/11/nc-introudion/</id>
     <published>2021-07-11T14:04:42.000Z</published>
     <updated>2021-07-23T09:08:15.748Z</updated>
     
@@ -110,19 +110,19 @@
     
     
     
-    <category term="基础学习" scheme="http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="基础学习" scheme="http://www.fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="linux" scheme="http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/linux/"/>
+    <category term="linux" scheme="http://www.fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/linux/"/>
     
     
-    <category term="linux" scheme="http://fxizenta.design/tags/linux/"/>
+    <category term="linux" scheme="http://www.fxizenta.design/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>2021ciscn_web华南赛区wp</title>
-    <link href="http://fxizenta.design/2021/07/10/ciscn2021hn/"/>
-    <id>http://fxizenta.design/2021/07/10/ciscn2021hn/</id>
+    <link href="http://www.fxizenta.design/2021/07/10/ciscn2021hn/"/>
+    <id>http://www.fxizenta.design/2021/07/10/ciscn2021hn/</id>
     <published>2021-07-10T12:09:43.000Z</published>
     <updated>2021-07-23T09:06:50.795Z</updated>
     
@@ -136,19 +136,19 @@
     
     
     
-    <category term="ctf" scheme="http://fxizenta.design/categories/ctf/"/>
+    <category term="ctf" scheme="http://www.fxizenta.design/categories/ctf/"/>
     
-    <category term="web" scheme="http://fxizenta.design/categories/ctf/web/"/>
+    <category term="web" scheme="http://www.fxizenta.design/categories/ctf/web/"/>
     
     
-    <category term="wp" scheme="http://fxizenta.design/tags/wp/"/>
+    <category term="wp" scheme="http://www.fxizenta.design/tags/wp/"/>
     
   </entry>
   
   <entry>
     <title>fastjson反序列化漏洞分析与复现</title>
-    <link href="http://fxizenta.design/2021/05/29/fastjson/"/>
-    <id>http://fxizenta.design/2021/05/29/fastjson/</id>
+    <link href="http://www.fxizenta.design/2021/05/29/fastjson/"/>
+    <id>http://www.fxizenta.design/2021/05/29/fastjson/</id>
     <published>2021-05-29T13:21:06.000Z</published>
     <updated>2021-08-13T15:35:56.977Z</updated>
     
@@ -159,23 +159,23 @@
     
     
     
-    <category term="漏洞复现" scheme="http://fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
+    <category term="漏洞复现" scheme="http://www.fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"/>
     
-    <category term="fastjson" scheme="http://fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/fastjson/"/>
+    <category term="fastjson" scheme="http://www.fxizenta.design/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/fastjson/"/>
     
     
-    <category term="反序列化" scheme="http://fxizenta.design/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
+    <category term="反序列化" scheme="http://www.fxizenta.design/tags/%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96/"/>
     
-    <category term="RCE" scheme="http://fxizenta.design/tags/RCE/"/>
+    <category term="RCE" scheme="http://www.fxizenta.design/tags/RCE/"/>
     
-    <category term="JNDI注入" scheme="http://fxizenta.design/tags/JNDI%E6%B3%A8%E5%85%A5/"/>
+    <category term="JNDI注入" scheme="http://www.fxizenta.design/tags/JNDI%E6%B3%A8%E5%85%A5/"/>
     
   </entry>
   
   <entry>
     <title>2021ciscn_web_wp</title>
-    <link href="http://fxizenta.design/2021/05/18/ciscn2021/"/>
-    <id>http://fxizenta.design/2021/05/18/ciscn2021/</id>
+    <link href="http://www.fxizenta.design/2021/05/18/ciscn2021/"/>
+    <id>http://www.fxizenta.design/2021/05/18/ciscn2021/</id>
     <published>2021-05-18T01:07:07.000Z</published>
     <updated>2021-07-23T09:05:40.368Z</updated>
     
@@ -191,19 +191,19 @@
     
     
     
-    <category term="ctf" scheme="http://fxizenta.design/categories/ctf/"/>
+    <category term="ctf" scheme="http://www.fxizenta.design/categories/ctf/"/>
     
-    <category term="web" scheme="http://fxizenta.design/categories/ctf/web/"/>
+    <category term="web" scheme="http://www.fxizenta.design/categories/ctf/web/"/>
     
     
-    <category term="wp" scheme="http://fxizenta.design/tags/wp/"/>
+    <category term="wp" scheme="http://www.fxizenta.design/tags/wp/"/>
     
   </entry>
   
   <entry>
     <title>同源策略和COTRS</title>
-    <link href="http://fxizenta.design/2021/05/06/same_source_and_cors/"/>
-    <id>http://fxizenta.design/2021/05/06/same_source_and_cors/</id>
+    <link href="http://www.fxizenta.design/2021/05/06/same_source_and_cors/"/>
+    <id>http://www.fxizenta.design/2021/05/06/same_source_and_cors/</id>
     <published>2021-05-06T12:07:07.000Z</published>
     <updated>2021-07-23T09:09:15.632Z</updated>
     
@@ -217,19 +217,19 @@
     
     
     
-    <category term="web" scheme="http://fxizenta.design/categories/web/"/>
+    <category term="web" scheme="http://www.fxizenta.design/categories/web/"/>
     
-    <category term="域的问题" scheme="http://fxizenta.design/categories/web/%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
+    <category term="域的问题" scheme="http://www.fxizenta.design/categories/web/%E5%9F%9F%E7%9A%84%E9%97%AE%E9%A2%98/"/>
     
     
-    <category term="前端" scheme="http://fxizenta.design/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="http://www.fxizenta.design/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>sql注入总结(补充更新中)</title>
-    <link href="http://fxizenta.design/2021/04/17/sqli/"/>
-    <id>http://fxizenta.design/2021/04/17/sqli/</id>
+    <link href="http://www.fxizenta.design/2021/04/17/sqli/"/>
+    <id>http://www.fxizenta.design/2021/04/17/sqli/</id>
     <published>2021-04-17T08:52:02.149Z</published>
     <updated>2021-07-27T13:10:06.138Z</updated>
     
@@ -240,19 +240,19 @@
     
     
     
-    <category term="渗透知识" scheme="http://fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/"/>
+    <category term="渗透知识" scheme="http://www.fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/"/>
     
-    <category term="sql注入" scheme="http://fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/sql%E6%B3%A8%E5%85%A5/"/>
+    <category term="sql注入" scheme="http://www.fxizenta.design/categories/%E6%B8%97%E9%80%8F%E7%9F%A5%E8%AF%86/sql%E6%B3%A8%E5%85%A5/"/>
     
     
-    <category term="sqli" scheme="http://fxizenta.design/tags/sqli/"/>
+    <category term="sqli" scheme="http://www.fxizenta.design/tags/sqli/"/>
     
   </entry>
   
   <entry>
     <title>2021hfctf_wp</title>
-    <link href="http://fxizenta.design/2021/04/06/2021hfctf-wp/"/>
-    <id>http://fxizenta.design/2021/04/06/2021hfctf-wp/</id>
+    <link href="http://www.fxizenta.design/2021/04/06/2021hfctf-wp/"/>
+    <id>http://www.fxizenta.design/2021/04/06/2021hfctf-wp/</id>
     <published>2021-04-06T11:52:50.000Z</published>
     <updated>2021-07-23T08:59:52.144Z</updated>
     
@@ -266,19 +266,19 @@
     
     
     
-    <category term="ctf" scheme="http://fxizenta.design/categories/ctf/"/>
+    <category term="ctf" scheme="http://www.fxizenta.design/categories/ctf/"/>
     
-    <category term="web" scheme="http://fxizenta.design/categories/ctf/web/"/>
+    <category term="web" scheme="http://www.fxizenta.design/categories/ctf/web/"/>
     
     
-    <category term="wp" scheme="http://fxizenta.design/tags/wp/"/>
+    <category term="wp" scheme="http://www.fxizenta.design/tags/wp/"/>
     
   </entry>
   
   <entry>
     <title>正则表达式学习总结</title>
-    <link href="http://fxizenta.design/2021/03/06/regular_expression/"/>
-    <id>http://fxizenta.design/2021/03/06/regular_expression/</id>
+    <link href="http://www.fxizenta.design/2021/03/06/regular_expression/"/>
+    <id>http://www.fxizenta.design/2021/03/06/regular_expression/</id>
     <published>2021-03-06T04:24:46.000Z</published>
     <updated>2021-07-23T09:08:46.637Z</updated>
     
@@ -293,19 +293,19 @@
     
     
     
-    <category term="基础学习" scheme="http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
+    <category term="基础学习" scheme="http://www.fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/"/>
     
-    <category term="正则表达式" scheme="http://fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <category term="正则表达式" scheme="http://www.fxizenta.design/categories/%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
     
-    <category term="正则表达式" scheme="http://fxizenta.design/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
+    <category term="正则表达式" scheme="http://www.fxizenta.design/tags/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/"/>
     
   </entry>
   
   <entry>
     <title>一道flask的wp</title>
-    <link href="http://fxizenta.design/2021/03/01/awp_for_falsk/"/>
-    <id>http://fxizenta.design/2021/03/01/awp_for_falsk/</id>
+    <link href="http://www.fxizenta.design/2021/03/01/awp_for_falsk/"/>
+    <id>http://www.fxizenta.design/2021/03/01/awp_for_falsk/</id>
     <published>2021-03-01T08:24:46.000Z</published>
     <updated>2021-07-23T09:04:17.798Z</updated>
     
@@ -320,19 +320,19 @@
     
     
     
-    <category term="ctf" scheme="http://fxizenta.design/categories/ctf/"/>
+    <category term="ctf" scheme="http://www.fxizenta.design/categories/ctf/"/>
     
-    <category term="web" scheme="http://fxizenta.design/categories/ctf/web/"/>
+    <category term="web" scheme="http://www.fxizenta.design/categories/ctf/web/"/>
     
     
-    <category term="flask" scheme="http://fxizenta.design/tags/flask/"/>
+    <category term="flask" scheme="http://www.fxizenta.design/tags/flask/"/>
     
   </entry>
   
   <entry>
     <title>Hello</title>
-    <link href="http://fxizenta.design/2021/01/24/hello-world/"/>
-    <id>http://fxizenta.design/2021/01/24/hello-world/</id>
+    <link href="http://www.fxizenta.design/2021/01/24/hello-world/"/>
+    <id>http://www.fxizenta.design/2021/01/24/hello-world/</id>
     <published>2021-01-23T16:00:00.000Z</published>
     <updated>2021-03-15T10:58:21.520Z</updated>
     
