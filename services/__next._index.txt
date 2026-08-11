@@ -1,0 +1,47 @@
+1:"$Sreact.fragment"
+3:I[94519,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"ThemeProvider"]
+4:I[71889,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"LocaleProvider"]
+5:I[28127,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+:HL["/_next/static/chunks/0pata2_17ev1x.css","style"]
+2:T4f6,
+    try {
+      const cfg = {"enabled":true,"locales":["en","zh"],"defaultLocale":"en","mode":"fixed","fixedLocale":"en","persist":true,"switcher":true,"labels":{"en":"English","zh":"中文"}};
+      const storageKey = 'locale-storage';
+      const normalize = (value) => typeof value === 'string' ? value.trim().replace('_', '-').toLowerCase() : '';
+      const matchLocale = (candidate) => {
+        const normalized = normalize(candidate);
+        if (!normalized) return null;
+        if (cfg.locales.includes(normalized)) return normalized;
+        const language = normalized.split('-')[0];
+        if (cfg.locales.includes(language)) return language;
+        return null;
+      };
+
+      const firstPathSegment = location.pathname.split('/').filter(Boolean)[0];
+      const routeLocale = cfg.locales.includes(firstPathSegment) ? firstPathSegment : null;
+      const resolved = routeLocale || cfg.defaultLocale;
+
+      const root = document.documentElement;
+      root.lang = resolved;
+      root.setAttribute('data-locale', resolved);
+
+      if (cfg.persist) {
+        localStorage.setItem(storageKey, resolved);
+      }
+    } catch (e) {
+      const root = document.documentElement;
+      root.lang = 'en';
+      root.setAttribute('data-locale', 'en');
+    }
+  9:X
+0:{"buildId":"-ZvOPHKOIOS8pybeU6wVM","data":[{"rsc":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0pata2_17ev1x.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/39t54jck290za.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/1w_a1r7c2esni.js","async":true}],["$","script","script-2",{"src":"/_next/static/chunks/0mhj56q7ru8rt.js","async":true}]],["$","html",null,{"lang":"en","className":"scroll-smooth","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                const theme = localStorage.getItem('theme-storage');\n                const parsed = theme ? JSON.parse(theme) : null;\n                const setting = parsed?.state?.theme || 'system';\n                const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;\n                const effective = setting === 'dark' ? 'dark' : (setting === 'light' ? 'light' : (prefersDark ? 'dark' : 'light'));\n                var root = document.documentElement;\n                root.classList.add(effective);\n                root.setAttribute('data-theme', effective);\n              } catch (e) {\n                var root = document.documentElement;\n                root.classList.add('light');\n                root.setAttribute('data-theme', 'light');\n              }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]]}],["$","body",null,{"className":"font-sans antialiased","children":["$","$L3",null,{"children":["$","$L4",null,{"config":{"enabled":true,"locales":["en","zh"],"defaultLocale":"en","mode":"fixed","fixedLocale":"en","persist":true,"switcher":true,"labels":{"en":"English","zh":"中文"}},"children":[["$","$L5",null,{"items":[{"title":"About","type":"page","target":"about","href":"/"},{"title":"Publications","type":"page","target":"publications","href":"/publications"},{"title":"Awards","type":"page","target":"awards","href":"/awards"},{"title":"Services","type":"page","target":"services","href":"/services"},{"title":"CV","type":"page","target":"cv","href":"/cv"}],"siteTitle":"Zhentao Xie","enableOnePageMode":false,"i18n":"$0:data:0:rsc:props:children:1:props:children:1:props:children:props:children:props:config","itemsByLocale":{"en":[{"title":"About","type":"page","target":"about","href":"/"},{"title":"Publications","type":"page","target":"publications","href":"/publications"},{"title":"Awards","type":"page","target":"awards","href":"/awards"},{"title":"Services","type":"page","target":"services","href":"/services"},{"title":"CV","type":"page","target":"cv","href":"/cv"}],"zh":[{"title":"关于我","type":"page","target":"about","href":"/"},{"title":"论文","type":"page","target":"publications","href":"/publications"},{"title":"奖项","type":"page","target":"awards","href":"/awards"},{"title":"学术服务","type":"page","target":"services","href":"/services"},{"title":"简历","type":"page","target":"cv","href":"/cv"}]},"siteTitleByLocale":{"en":"Zhentao Xie","zh":"谢震涛"}}],"$L6","$L7"]}]}]}]]}]]}],"isPartial":"$@8","staleTime":"$9","varyParams":null}],"isUpgradeableISRFallback":false,"a":"$@a","rootVaryParams":null,"needsRuntimeRequest":"$@b"}
+c:I[39756,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+d:I[37457,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+e:I[58234,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+6:["$","main",null,{"className":"min-h-screen pt-16 lg:pt-20","children":["$","$Lc",null,{"parallelRouterKey":"children","template":["$","$Ld",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]
+7:["$","$Le",null,{"lastUpdated":"August 11, 2026","lastUpdatedByLocale":{"en":"August 11, 2026","zh":"2026年8月11日"},"defaultLocale":"en"}]
+9:300
+b:true
+9:C
+a:0
+8:"$undefined"

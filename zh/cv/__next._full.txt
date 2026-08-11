@@ -1,0 +1,127 @@
+1:"$Sreact.fragment"
+3:I[94519,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"ThemeProvider"]
+4:I[71889,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"LocaleProvider"]
+5:I[28127,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+d:I[68027,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default",1]
+:HL["/_next/static/chunks/0pata2_17ev1x.css","style"]
+2:T4f6,
+    try {
+      const cfg = {"enabled":true,"locales":["en","zh"],"defaultLocale":"en","mode":"fixed","fixedLocale":"en","persist":true,"switcher":true,"labels":{"en":"English","zh":"中文"}};
+      const storageKey = 'locale-storage';
+      const normalize = (value) => typeof value === 'string' ? value.trim().replace('_', '-').toLowerCase() : '';
+      const matchLocale = (candidate) => {
+        const normalized = normalize(candidate);
+        if (!normalized) return null;
+        if (cfg.locales.includes(normalized)) return normalized;
+        const language = normalized.split('-')[0];
+        if (cfg.locales.includes(language)) return language;
+        return null;
+      };
+
+      const firstPathSegment = location.pathname.split('/').filter(Boolean)[0];
+      const routeLocale = cfg.locales.includes(firstPathSegment) ? firstPathSegment : null;
+      const resolved = routeLocale || cfg.defaultLocale;
+
+      const root = document.documentElement;
+      root.lang = resolved;
+      root.setAttribute('data-locale', resolved);
+
+      if (cfg.persist) {
+        localStorage.setItem(storageKey, resolved);
+      }
+    } catch (e) {
+      const root = document.documentElement;
+      root.lang = 'en';
+      root.setAttribute('data-locale', 'en');
+    }
+  b:X
+0:{"P":null,"c":["","zh","cv",""],"q":"","i":false,"f":[[["",{"children":["zh",{"children":[["slug","cv","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0pata2_17ev1x.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/39t54jck290za.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/1w_a1r7c2esni.js","async":true,"nonce":"$undefined"}],["$","script","script-2",{"src":"/_next/static/chunks/0mhj56q7ru8rt.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","className":"scroll-smooth","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","link",null,{"rel":"icon","href":"/favicon.png","type":"image/png"}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n              try {\n                const theme = localStorage.getItem('theme-storage');\n                const parsed = theme ? JSON.parse(theme) : null;\n                const setting = parsed?.state?.theme || 'system';\n                const prefersDark = typeof window !== 'undefined' && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;\n                const effective = setting === 'dark' ? 'dark' : (setting === 'light' ? 'light' : (prefersDark ? 'dark' : 'light'));\n                var root = document.documentElement;\n                root.classList.add(effective);\n                root.setAttribute('data-theme', effective);\n              } catch (e) {\n                var root = document.documentElement;\n                root.classList.add('light');\n                root.setAttribute('data-theme', 'light');\n              }\n            "}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"$2"}}]]}],["$","body",null,{"className":"font-sans antialiased","children":["$","$L3",null,{"children":["$","$L4",null,{"config":{"enabled":true,"locales":["en","zh"],"defaultLocale":"en","mode":"fixed","fixedLocale":"en","persist":true,"switcher":true,"labels":{"en":"English","zh":"中文"}},"children":[["$","$L5",null,{"items":[{"title":"About","type":"page","target":"about","href":"/"},{"title":"Publications","type":"page","target":"publications","href":"/publications"},{"title":"Awards","type":"page","target":"awards","href":"/awards"},{"title":"Services","type":"page","target":"services","href":"/services"},{"title":"CV","type":"page","target":"cv","href":"/cv"}],"siteTitle":"Zhentao Xie","enableOnePageMode":false,"i18n":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:children:props:config","itemsByLocale":{"en":[{"title":"About","type":"page","target":"about","href":"/"},{"title":"Publications","type":"page","target":"publications","href":"/publications"},{"title":"Awards","type":"page","target":"awards","href":"/awards"},{"title":"Services","type":"page","target":"services","href":"/services"},{"title":"CV","type":"page","target":"cv","href":"/cv"}],"zh":[{"title":"关于我","type":"page","target":"about","href":"/"},{"title":"论文","type":"page","target":"publications","href":"/publications"},{"title":"奖项","type":"page","target":"awards","href":"/awards"},{"title":"学术服务","type":"page","target":"services","href":"/services"},{"title":"简历","type":"page","target":"cv","href":"/cv"}]},"siteTitleByLocale":{"en":"Zhentao Xie","zh":"谢震涛"}}],"$L6","$L7"]}]}]}]]}]]}],{"children":["$L8",{"children":["$L9",{"children":["$La",{},null,false,null]},null,false,"$b"]},null,false,"$b"]},null,false,null],"$Lc",false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"-ZvOPHKOIOS8pybeU6wVM"}
+f:I[39756,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+10:I[37457,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+11:I[58234,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+13:I[97367,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"OutletBoundary"]
+14:"$Sreact.suspense"
+16:I[97367,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"ViewportBoundary"]
+18:I[97367,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"MetadataBoundary"]
+6:["$","main",null,{"className":"min-h-screen pt-16 lg:pt-20","children":["$","$Lf",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L10",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]
+7:["$","$L11",null,{"lastUpdated":"August 11, 2026","lastUpdatedByLocale":{"en":"August 11, 2026","zh":"2026年8月11日"},"defaultLocale":"en"}]
+8:["$","$1","c",{"children":[null,["$","$Lf",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L10",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+9:["$","$1","c",{"children":[null,["$","$Lf",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L10",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+a:["$","$1","c",{"children":["$L12",[["$","script","script-0",{"src":"/_next/static/chunks/29fai-oepsc50.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0jy5shzelbvfa.js","async":true,"nonce":"$undefined"}]],["$","$L13",null,{"children":["$","$14",null,{"name":"Next.MetadataOutlet","children":"$@15"}]}]]}]
+c:["$","$1","h",{"children":[null,["$","$L16",null,{"children":"$L17"}],["$","div",null,{"hidden":true,"children":["$","$L18",null,{"children":["$","$14",null,{"name":"Next.Metadata","children":"$L19"}]}]}],null]}]
+e:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0pata2_17ev1x.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+1a:I[21062,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js","/_next/static/chunks/29fai-oepsc50.js","/_next/static/chunks/0jy5shzelbvfa.js"],"default"]
+b:C
+1b:Td8b,## 教育经历
+
+**香港中文大学**，信息工程博士，*2026 年 8 月 - 2030 年 8 月（预计）*
+- 导师：[张克环教授](https://staff.ie.cuhk.edu.hk/~khzhang/)
+
+**山东大学**，网络空间安全工学硕士，*2023 年 9 月 - 2026 年 6 月*
+- 导师：[刁文瑞教授](https://diaowenrui.github.io/)
+- 推免至山东大学
+
+**华南师范大学**，网络工程工学学士，*2019 年 9 月 - 2023 年 6 月*
+
+## 研究兴趣
+
+- 移动安全问题
+- 二进制安全
+- LLM 在传统安全领域的应用
+
+## 论文
+
+**RuleDroid: LLM-Augmented Automatic Generation of Android Security Detection Rules**  
+Zhentao Xie, Mingyang Chen, Shishuai Yang, Yaqi Gao, Wenrui Diao, Xiangyu Liu, and Kehuan Zhang.  
+IEEE Transactions on Software Engineering，2026 年 5 月。[CCF-A; SCI Q1; JCR Q1; CAS Q1]
+
+**Mini-Programs, Mega-Problems: Unveiling OAuth Misuses in Mini-Programs via Dynamic Analysis**  
+Zidong Zhang, Zhentao Xie（共同一作）, Lingyun Ying, Qinsheng Hou, Yacong Gu, Wenrui Diao, and Jianliang Wu.  
+ACM Conference on Computer and Communications Security（ACM CCS 2026），2026 年 6 月。[CCF-A; CORE A*; Security TOP4]
+
+**Structure-Guided Semantic Deobfuscation of Android Identifiers**  
+Mingyang Chen, Zhentao Xie, Yaqi Gao, and Wenrui Diao.  
+IEEE/ACM International Conference on Automated Software Engineering（ASE 2026）。[CCF-A; CORE A*]
+
+## 荣誉与奖项
+
+- **研究生国家奖学金**，中华人民共和国教育部，2025
+- **研究生国家奖学金**，中华人民共和国教育部，2024
+- **山东大学优秀研究生**，山东大学，2024
+- **硕士研究生新生学业奖学金**，山东大学，2023
+- **专业创新奖**，华为“智能基座”未来之星，2022
+- **综合奖学金一等奖**，华南师范大学，2022
+
+## 代表性竞赛奖项
+
+- **DataCon2025 大数据安全分析竞赛**，软件供应链安全赛道，一等奖，总排名第二，2025
+- **DataCon2024 大数据安全分析竞赛**，软件供应链安全赛道，一等奖，总排名第三，队长，2024
+- **第六届强网拟态防御国际精英挑战赛**，移动安全赛道，二等奖，总排名第三，队长，2023
+- **DataCon2023 大数据安全分析竞赛**，软件安全赛道，总排名第三，队长，2023
+- **第二届广东省大学生网络安全攻防竞赛**，一等奖，2023
+- **2022 XCTF 网络安全高校挑战赛总决赛**，优胜奖，2022
+- **第一届广东省大学生网络安全攻防竞赛**，一等奖，2022
+- **第十四届全国大学生信息安全竞赛全国总决赛**，三等奖，2021
+- **第十四届全国大学生信息安全竞赛华南分区赛**，一等奖，2021
+- **第四届“长城杯”信息安全铁人三项赛全国总决赛**，二等奖，2021
+- **X-NUCA 全国高校网安联赛 2020 团队赛**，三等奖，2020
+- **X-NUCA 全国高校网安联赛 2020 个人赛**，总排名第三，2020
+
+## 经历
+
+**S1um4i 安全团队**，成员，*2022 年 12 月至今*
+- 高校网络安全竞赛与安全研究团队。
+- 主要负责 Android 安全相关赛题。
+
+**奇安信科技集团股份有限公司**，安全服务工程师，*2022 年 6 月 - 2022 年 9 月*
+- 作为防守队成员参与国家级和省级网络安全攻防演练。
+- 参与企业系统监测，并协助发现和缓解红队攻击。
+
+## 学术服务
+
+- 曾为 USENIX Security 2026、ACM CCS 2025、USENIX Security 2025、ACM CCS 2024 和 ARES 2024 审稿。
+12:["$","$L1a",null,{"dataByLocale":{"zh":{"type":"text","config":{"type":"text","title":"简历","source":"cv.md"},"content":"$1b"}},"defaultLocale":"zh"}]
+17:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+1c:I[27201,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"IconMark"]
+15:null
+19:[["$","title","0",{"children":"简历 | 谢震涛"}],["$","meta","1",{"name":"author","content":"Zhentao Xie"}],["$","meta","2",{"name":"keywords","content":"Zhentao Xie,PhD,Research,The Chinese University of Hong Kong"}],["$","meta","3",{"name":"creator","content":"Zhentao Xie"}],["$","meta","4",{"name":"publisher","content":"Zhentao Xie"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","link","6",{"rel":"canonical","href":"https://fxizenta.github.io/zh/cv/"}],["$","link","7",{"rel":"alternate","hrefLang":"en","href":"https://fxizenta.github.io/cv/"}],["$","link","8",{"rel":"alternate","hrefLang":"zh","href":"https://fxizenta.github.io/zh/cv/"}],["$","meta","9",{"property":"og:title","content":"简历"}],["$","meta","10",{"property":"og:url","content":"https://fxizenta.github.io/zh/cv/"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],["$","meta","12",{"name":"twitter:card","content":"summary"}],["$","meta","13",{"name":"twitter:title","content":"简历 | 谢震涛"}],["$","meta","14",{"name":"twitter:image","content":"https://fxizenta.github.io/avatar-20260605.webp"}],["$","link","15",{"rel":"icon","href":"/favicon.png"}],["$","$L1c","16",{}]]

@@ -1,0 +1,97 @@
+1:"$Sreact.fragment"
+2:I[21062,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js","/_next/static/chunks/29fai-oepsc50.js","/_next/static/chunks/0jy5shzelbvfa.js"],"default"]
+4:I[97367,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+9:I[97367,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"ViewportBoundary"]
+a:I[97367,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"MetadataBoundary"]
+3:Td8b,## 教育经历
+
+**香港中文大学**，信息工程博士，*2026 年 8 月 - 2030 年 8 月（预计）*
+- 导师：[张克环教授](https://staff.ie.cuhk.edu.hk/~khzhang/)
+
+**山东大学**，网络空间安全工学硕士，*2023 年 9 月 - 2026 年 6 月*
+- 导师：[刁文瑞教授](https://diaowenrui.github.io/)
+- 推免至山东大学
+
+**华南师范大学**，网络工程工学学士，*2019 年 9 月 - 2023 年 6 月*
+
+## 研究兴趣
+
+- 移动安全问题
+- 二进制安全
+- LLM 在传统安全领域的应用
+
+## 论文
+
+**RuleDroid: LLM-Augmented Automatic Generation of Android Security Detection Rules**  
+Zhentao Xie, Mingyang Chen, Shishuai Yang, Yaqi Gao, Wenrui Diao, Xiangyu Liu, and Kehuan Zhang.  
+IEEE Transactions on Software Engineering，2026 年 5 月。[CCF-A; SCI Q1; JCR Q1; CAS Q1]
+
+**Mini-Programs, Mega-Problems: Unveiling OAuth Misuses in Mini-Programs via Dynamic Analysis**  
+Zidong Zhang, Zhentao Xie（共同一作）, Lingyun Ying, Qinsheng Hou, Yacong Gu, Wenrui Diao, and Jianliang Wu.  
+ACM Conference on Computer and Communications Security（ACM CCS 2026），2026 年 6 月。[CCF-A; CORE A*; Security TOP4]
+
+**Structure-Guided Semantic Deobfuscation of Android Identifiers**  
+Mingyang Chen, Zhentao Xie, Yaqi Gao, and Wenrui Diao.  
+IEEE/ACM International Conference on Automated Software Engineering（ASE 2026）。[CCF-A; CORE A*]
+
+## 荣誉与奖项
+
+- **研究生国家奖学金**，中华人民共和国教育部，2025
+- **研究生国家奖学金**，中华人民共和国教育部，2024
+- **山东大学优秀研究生**，山东大学，2024
+- **硕士研究生新生学业奖学金**，山东大学，2023
+- **专业创新奖**，华为“智能基座”未来之星，2022
+- **综合奖学金一等奖**，华南师范大学，2022
+
+## 代表性竞赛奖项
+
+- **DataCon2025 大数据安全分析竞赛**，软件供应链安全赛道，一等奖，总排名第二，2025
+- **DataCon2024 大数据安全分析竞赛**，软件供应链安全赛道，一等奖，总排名第三，队长，2024
+- **第六届强网拟态防御国际精英挑战赛**，移动安全赛道，二等奖，总排名第三，队长，2023
+- **DataCon2023 大数据安全分析竞赛**，软件安全赛道，总排名第三，队长，2023
+- **第二届广东省大学生网络安全攻防竞赛**，一等奖，2023
+- **2022 XCTF 网络安全高校挑战赛总决赛**，优胜奖，2022
+- **第一届广东省大学生网络安全攻防竞赛**，一等奖，2022
+- **第十四届全国大学生信息安全竞赛全国总决赛**，三等奖，2021
+- **第十四届全国大学生信息安全竞赛华南分区赛**，一等奖，2021
+- **第四届“长城杯”信息安全铁人三项赛全国总决赛**，二等奖，2021
+- **X-NUCA 全国高校网安联赛 2020 团队赛**，三等奖，2020
+- **X-NUCA 全国高校网安联赛 2020 个人赛**，总排名第三，2020
+
+## 经历
+
+**S1um4i 安全团队**，成员，*2022 年 12 月至今*
+- 高校网络安全竞赛与安全研究团队。
+- 主要负责 Android 安全相关赛题。
+
+**奇安信科技集团股份有限公司**，安全服务工程师，*2022 年 6 月 - 2022 年 9 月*
+- 作为防守队成员参与国家级和省级网络安全攻防演练。
+- 参与企业系统监测，并协助发现和缓解红队攻击。
+
+## 学术服务
+
+- 曾为 USENIX Security 2026、ACM CCS 2025、USENIX Security 2025、ACM CCS 2024 和 ARES 2024 审稿。
+8:X
+13:X
+13:C
+0:{"buildId":"-ZvOPHKOIOS8pybeU6wVM","data":[{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"dataByLocale":{"zh":{"type":"text","config":{"type":"text","title":"简历","source":"cv.md"},"content":"$3"}},"defaultLocale":"zh"}],[["$","script","script-0",{"src":"/_next/static/chunks/29fai-oepsc50.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/0jy5shzelbvfa.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"isPartial":"$@7","staleTime":"$8","varyParams":null},{"rsc":["$","$1","h",{"children":[null,["$","$L9",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":[["$","title","0",{"children":"简历 | 谢震涛"}],["$","meta","1",{"name":"author","content":"Zhentao Xie"}],["$","meta","2",{"name":"keywords","content":"Zhentao Xie,PhD,Research,The Chinese University of Hong Kong"}],["$","meta","3",{"name":"creator","content":"Zhentao Xie"}],["$","meta","4",{"name":"publisher","content":"Zhentao Xie"}],["$","meta","5",{"name":"robots","content":"index, follow"}],["$","link","6",{"rel":"canonical","href":"https://fxizenta.github.io/zh/cv/"}],["$","link","7",{"rel":"alternate","hrefLang":"en","href":"https://fxizenta.github.io/cv/"}],["$","link","8",{"rel":"alternate","hrefLang":"zh","href":"https://fxizenta.github.io/zh/cv/"}],["$","meta","9",{"property":"og:title","content":"简历"}],["$","meta","10",{"property":"og:url","content":"https://fxizenta.github.io/zh/cv/"}],["$","meta","11",{"property":"og:locale","content":"zh_CN"}],"$Lb","$Lc","$Ld","$Le","$Lf"]}]}]}],null]}],"isPartial":"$@10","staleTime":"$8","varyParams":null},{"rsc":"$L11","isPartial":"$@12","staleTime":"$8","varyParams":"$13"},{"rsc":"$L14","isPartial":"$@15","staleTime":"$8","varyParams":"$13"}],"isUpgradeableISRFallback":false,"a":"$@16","rootVaryParams":null,"needsRuntimeRequest":"$@17"}
+18:I[27201,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"IconMark"]
+19:I[39756,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+1a:I[37457,["/_next/static/chunks/39t54jck290za.js","/_next/static/chunks/1w_a1r7c2esni.js","/_next/static/chunks/0mhj56q7ru8rt.js"],"default"]
+6:null
+b:["$","meta","12",{"name":"twitter:card","content":"summary"}]
+c:["$","meta","13",{"name":"twitter:title","content":"简历 | 谢震涛"}]
+d:["$","meta","14",{"name":"twitter:image","content":"https://fxizenta.github.io/avatar-20260605.webp"}]
+e:["$","link","15",{"rel":"icon","href":"/favicon.png"}]
+f:["$","$L18","16",{}]
+11:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+14:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","template":["$","$L1a",null,{}]}]]}]
+17:true
+8:300
+8:C
+16:0
+10:"$undefined"
+12:"$undefined"
+15:"$undefined"
+7:"$undefined"

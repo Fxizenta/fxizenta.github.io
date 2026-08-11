@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://fxizenta.github.io/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/zh/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/publications/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/publications/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/publications/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/zh/publications/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/publications/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/publications/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/awards/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/awards/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/awards/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/zh/awards/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/awards/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/awards/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/services/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/services/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/services/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/zh/services/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/services/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/services/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/cv/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/cv/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/cv/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://fxizenta.github.io/zh/cv/</loc>
+<xhtml:link rel="alternate" hreflang="en" href="https://fxizenta.github.io/cv/" />
+<xhtml:link rel="alternate" hreflang="zh" href="https://fxizenta.github.io/zh/cv/" />
+<lastmod>2026-08-10T16:00:00.000Z</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+</urlset>

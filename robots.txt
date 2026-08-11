@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+
+Host: https://fxizenta.github.io
+Sitemap: https://fxizenta.github.io/sitemap.xml
